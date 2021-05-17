@@ -118,7 +118,50 @@ public class Self0517 {
 				break;
 			case 4:
 				
+				System.out.println("[학생 성적검색]");
+				System.out.println("검색할 학생의 이름을 입력해주세요");
+
+				searchName = scan.next();
+				System.out.println("일치하는 학생이름");
+				for (int i = 0; i < count; i++) {
+					if (name[i].contains(searchName)) {
+						searchNameNum = i;
+						System.out.printf("[%s]", name[i]);
+					}
+				}
+				System.out.println();
+				System.out.println("성적을 확인할 학생이름을  입력하세요");
+				fixName = scan.next();
+
+				for (int i = 0; i < count; i++) {
+					if (fixName.equals(name[i])) {
+						fixNameNo = i;
+					}
+				}
+				System.out.print("\n이름\t");
+				for (int i = 0; i < sub.length; i++) {
+					System.out.printf("%s\t", sub[i]);
+				}
+				System.out.println("합계\t평균\t등수");
+
+				System.out.println();
+				for (int j = fixNameNo; j <= fixNameNo; j++) {
+					System.out.printf("%s\t", name[j]);
+					for (int k = 0; k <= sub_num; k++) {
+						System.out.printf("%d\t", score[j][k]);
+					}
+					System.out.printf("%.2f\t", avg[j]);
+					System.out.printf("%d", rank[j]);
+				}
+
+				System.out.println();
+				if (searchNameNo == -1) {
+					System.out.println("이름이 없습니다");
+					break;
+				}
+
 				break;
+
 			case 5:
 				for(int i =0; i<count; i++) {
 					int rankNum = 1;
