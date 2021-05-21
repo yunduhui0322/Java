@@ -16,32 +16,69 @@ public class Student {
 	Student() {
 	}
 
-	Student(String n, int k, int e, int m) {
-		name = n;
-		kor = k;
-		eng = e;
-		math = m;
-		total = k + e + m;
-		avg = (double) total / 3;
+	Student(String name, int kor, int eng, int math) {
+		this.name = name;
+		this.kor = kor;
+		this.eng = eng;
+		this.math = math;
+		this.total = this.kor + this.eng + this.math;
+		this.avg = (double) this.total / 3;
 	}// student 생성자
 
-	void fixKor(int k) {
-		kor = k;
-		total = k + eng + math;
-		avg = (double) total / 3;
+	void fixKor(int kor) {
+		this.kor = kor;
+		this.total = this.kor + eng + math;
+		this.avg = (double) this.total / 3;
 	}// fixKor method
 
-	void fixEng(int e) {
-		eng = e;
-		total = e + kor + math;
-		avg = (double) total / 3;
+	void fixEng(int eng) {
+		this.eng = eng;
+		this.total = this.eng + kor + math;
+		this.avg = (double) this.total / 3;
 	}// fixEng method
 
-	void fixMath(int m) {
-		math = m;
-		total = m + kor + eng;
-		avg = (double) total / 3;
+	void fixMath(int math) {
+		this.math = math;
+		this.total = this.math + kor + eng;
+		this.avg = (double) this.total / 3;
 	}// fixMath method
+
+	static void handleScore(Student[] stu) {
+		loop1: while (true) {
+			Student.mainPrint();
+			int choice = scan.nextInt();
+
+			switch (choice) {
+			case 1:
+				System.out.println("학생성적 추가");
+				Student.input(stu);
+				break;
+			case 2:
+				System.out.println("[ 학생성적 출력 ]");
+				Student.title();
+				Student.outPut(stu);
+				break;
+			case 3:
+				System.out.println("[ 학생성적 수정 ]");
+				Student.fix(stu);
+				break;
+			case 4:
+				System.out.println("[ 학생성적 검색 ]");
+				Student.search(stu);
+				break;
+			case 5:
+				System.out.println("[등수 처리]");
+				Student.rank(stu);
+				break;
+			case 6:
+				break loop1;
+
+			default:
+				System.out.println("잘못입력하셨습니다.");
+				break;
+			}// switch
+		} // while
+	}// handleScore method
 
 	static void mainPrint() {
 		System.out.println("[ 학생성적 처리 프로그램]");
@@ -50,7 +87,7 @@ public class Student {
 		System.out.println("3. 학생성적 수정");
 		System.out.println("4. 학생성적 검색");
 		System.out.println("5. 학생성적 등수");
-		System.out.println("6  .프로그램종료");
+		System.out.println("6. 프로그램종료");
 	}// mainPrint method
 
 	static void input(Student[] stu) {
@@ -122,14 +159,14 @@ public class Student {
 		}
 	}// fix - method
 
-	static void title(Student[] stu) {
+	static void title() {
 		System.out.printf("번호\t이름\t국어\t영어\t수학\t합계\t평균\t등수\n");
 	}// title method
 
 	static void search(Student[] stu) {
 		System.out.println("학생이름을 입력하세요");
 		String findName = scan.next();
-		title(stu);
+		title();
 		for (int i = 0; i < Student.count; i++) {
 			if (stu[i].name.contains(findName)) {
 				System.out.printf("%d\t%s\t%d\t%d\t%d\t%d\t%.2f\t%d\n", stu[i].stu_num, stu[i].name, stu[i].kor,
