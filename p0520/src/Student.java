@@ -21,25 +21,25 @@ public class Student {
 		this.kor = kor;
 		this.eng = eng;
 		this.math = math;
-		this.total = this.kor + this.eng + this.math;
+		this.total = kor + eng + math;
 		this.avg = (double) this.total / 3;
 	}// student 생성자
 
 	void fixKor(int kor) {
 		this.kor = kor;
-		this.total = this.kor + eng + math;
+		this.total = kor + eng + math;
 		this.avg = (double) this.total / 3;
 	}// fixKor method
 
 	void fixEng(int eng) {
 		this.eng = eng;
-		this.total = this.eng + kor + math;
+		this.total = eng + kor + math;
 		this.avg = (double) this.total / 3;
 	}// fixEng method
 
 	void fixMath(int math) {
 		this.math = math;
-		this.total = this.math + kor + eng;
+		this.total = math + kor + eng;
 		this.avg = (double) this.total / 3;
 	}// fixMath method
 
