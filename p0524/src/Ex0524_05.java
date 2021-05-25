@@ -14,7 +14,7 @@ public class Ex0524_05 {
 			}
 		}//전체출력
 //		for(int i=1; i<=6; i++) {
-//			d.c[i].card_print(d.c[i].kind, d.c[i].number);
+//			d.c[i-1].card_print(d.c[i-1].kind, d.c[i-1].number);
 //		}
 	}//main
 }//class
