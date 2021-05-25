@@ -61,6 +61,9 @@ public class Student {
 	public double getAvg() {
 		return avg;
 	}
+	public void setRank(int rank) {
+		this.rank = rank;
+	}
 	
 	
 	
