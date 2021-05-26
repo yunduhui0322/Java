@@ -1,12 +1,11 @@
 
 public class LottoProgram {
 	final int LOTTO = 6;
-	int input_myBall;
 	int count;
 	LottoBall b = new LottoBall();
 	String[] myBall = new String[LOTTO];
 	int[] sameBall = new int[6];
-
+				
 	public void program_MainPrint() {
 		System.out.println("[ 로또번호 맞추기 ]");
 		System.out.println("1. 로또번호 섞기");
