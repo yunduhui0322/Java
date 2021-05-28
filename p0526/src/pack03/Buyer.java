@@ -59,12 +59,12 @@ public class Buyer {
 			cart.add(buy_list.get(buy_num - 1));
 			}
 			
+		System.out.printf("%s가 %d개구매되었습니다.\n", buy_list.get(buy_num-1).pro_name,buy_thing);
+		System.out.printf("현재 보유잔액 : %d만원\n",money);
 		buy_list.remove(buy_num - 1);
 		if(buy_list.size() == 0) {
 			System.out.println("장바구니가 비어있습니다.다시  채워주세요");
 			return;
 		}
-		System.out.printf("%s가 %d개구매되었습니다.\n", buy_list.get(buy_num-1).pro_name,buy_thing);
-		System.out.printf("현재 보유잔액 : %d만원\n",money);
 	}
 }
