@@ -15,4 +15,7 @@ public class Tv {
 	void channelDown() {
 		channel--;
 	};
+//	void caption() {
+//		System.out.println("Tv의 캡션 메소드");
+//	}
 }

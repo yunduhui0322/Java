@@ -1,4 +1,5 @@
-package pack01;
+ package pack01;
+
 
 public class Deck {
 	final int CARD_NUM = 52;
@@ -35,4 +36,5 @@ public class Deck {
 			}
 		}
 	}
+	
 }
