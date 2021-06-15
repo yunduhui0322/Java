@@ -1,10 +1,8 @@
 package p0614_002;
+public class Vulture extends GroundUnit implements Repairable{
 
-public class Vulture extends GroundUnit implements Repairable {
-
-	Vulture() {
+	public Vulture() {
 		super(100);
-		hitPoint = MAX_HP;
 	}
 
 }

@@ -10,5 +10,6 @@ public class Unit {
 //	}
 	Unit(int hp){
 		MAX_HP = hp;
+		hitPoint = MAX_HP;
 	}
 }
