@@ -21,7 +21,7 @@
     <hr>
 
     <form action="./content_view.jsp" name="write" method="post">
-    <input type = "hidden" name = "date" value = <%=sdf.format(today) %>
+    <input type = "hidden" name = "date" value = <%=sdf.format(today) %>>
       <table>
         <colgroup>
           <col width="15%">

@@ -23,7 +23,7 @@
     <h1>게시글수정</h1>
     <hr>
 
-    <form action="modify.do" name="modify" method="post">
+    <form action="./content_view.jsp" name="modify" method="post">
       <table>
       <input type="hidden" name="bId" value="">
         <colgroup>
