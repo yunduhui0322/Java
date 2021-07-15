@@ -8,7 +8,7 @@
 		<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 		<script type="text/javascript">
 			$(function(){
-				msg1 = "<%=request.getParameter("msg")%>";
+				var msg1 = "<%=request.getParameter("msg")%>";
 				if(msg1 != "null"){
 					alert(msg1);
 				}
