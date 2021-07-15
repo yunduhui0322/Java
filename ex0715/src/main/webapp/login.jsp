@@ -111,7 +111,7 @@
     <div id="container">
         <div id="content">
             <div style="margin-bottom: 7px"></div>
-            <form action="./LO" method = "post" name = "login_form">
+            <form action="./lO" method = "post" name = "login_form">
                 <fieldset style="border: 0">
                     <div class="id_area">
                         <div class="input_row" id="id_area">
