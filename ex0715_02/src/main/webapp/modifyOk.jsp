@@ -16,7 +16,6 @@
 		String address2 = request.getParameter("address2");
 		String[] hobbys = request.getParameterValues("hobby");
 		String hobby = "";
-		String session_id = (String)session.getAttribute("session_id");
 		for(int i=0; i<hobbys.length; i++){
 			if(i == 0){
 				hobby += hobbys[i];
@@ -26,7 +25,7 @@
 		}
 		UDto uDto = new UDto(id,pw,name,nickName,gender,tel,address1,address2,hobby);
 		UDao uDao = new UDao();
-		int resultNum = uDao.modifyUser(uDto,session_id);
+		int resultNum = uDao.m_User((String)session.getAttribute("session_id"));
 	
 		
 	%>  
@@ -39,6 +38,7 @@
 				<%
 				session.setAttribute("session_id", uDto.getId());
 				session.setAttribute("session_nickName", uDto.getNickName());
+				session.setAttribute("session_uDto", uDto);
 				%>
 			} 
 		</script> 

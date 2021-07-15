@@ -8,7 +8,6 @@
 	UDto uDto = (UDto)session.getAttribute("session_uDto");
 	/* UDao uDao = new UDao();
 	UDto uDto = uDao.selectUser((String)session.getAttribute("id"));*/
-	request.setAttribute("UDto", uDto);
 	String id = uDto.getId();
 	String pw = uDto.getPw();
 	String name = uDto.getName();
