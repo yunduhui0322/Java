@@ -58,7 +58,7 @@
       </tr>
     </table>
 
-    <a href=""><div class="list">목록</div></a>
+    <a href="./list.jsp"><div class="list">목록</div></a>
     <a href=""><div class="list">삭제</div></a>
     <a href=""><div class="list">수정</div></a>
     <a href=""><div class="list">답변달기</div></a>
