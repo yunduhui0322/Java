@@ -31,7 +31,7 @@
 		<label>패스워드</label>
 		<input type = "password" name = "pw" id = "pw"><br>
 		<input type = "button" value ="로그인" onclick = "loginCheck()">
-		<a href = "./indxe.jsp"><input type = "button" value ="취소"></a>
+		<a href = "./index.jsp"><input type = "button" value ="취소"></a>
 		</form>
 	</body>
 </html>

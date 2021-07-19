@@ -86,7 +86,7 @@ public class UDao {
 		}
 		return uDto;
 	}
-	public int m_User(String id) {
+	public int m_User(UDto uDto,String id) {
 		int resultNum = 0;
 		try {
 			conn = getConnection();

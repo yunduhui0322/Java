@@ -25,7 +25,7 @@
 		}
 		UDto uDto = new UDto(id,pw,name,nickName,gender,tel,address1,address2,hobby);
 		UDao uDao = new UDao();
-		int resultNum = uDao.m_User((String)session.getAttribute("session_id"));
+		int resultNum = uDao.m_User(uDto,(String)session.getAttribute("session_id"));
 	
 		
 	%>  
