@@ -118,4 +118,38 @@ public class UDao {
 		
 		return resultNum;
 	}
+	
+	public UDto memberOneSelect(String id) {
+		UDto uDto = new UDto();
+		try {
+				conn = getConnection();
+				String sql = "select * from member2 where id = ? ";
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, id);
+				rs = pstmt.executeQuery();
+				if(rs.next()) {
+					uDto.setId(rs.getString("id"));
+					uDto.setPw(rs.getString("pw"));
+					uDto.setName(rs.getString("Name"));
+					uDto.setNickName(rs.getString("nickName"));
+					uDto.setGender(rs.getString("gender"));
+					uDto.setTel(rs.getString("tel"));
+					uDto.setAddress1(rs.getString("address1"));
+					uDto.setAddress2(rs.getString("Address2"));
+					uDto.setHobby(rs.getString("hobby"));
+				}
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(rs != null) rs.close();
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+			}catch(Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+		return uDto;
+	}
 }
