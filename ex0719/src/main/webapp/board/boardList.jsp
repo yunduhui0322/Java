@@ -21,7 +21,7 @@
 		ArrayList<BDto> list = bDao.boardList();
 	%>
 	<body>
-	<h3>게시판 리스트</h3> <span><a href = "../index.jsp">메인페이지 이동</a></span>
+	<h3>게시판 리스트</h3> <span><a href = "../member/index.jsp">메인페이지 이동</a></span>
 		<table>
 			<tr>
 				<th>번호</th>			
