@@ -15,7 +15,7 @@
 					alert("입력 실패!");
 					location.href = "./boardWrite.do";
 				}
-		}
+			}
 			if(${modifyResult != null}){
 				if(${modifyResult == 1}){
 					alert("수정 성공!");

@@ -195,13 +195,11 @@ public class BDao {
 				bindent = rs.getInt("bindent");
 				bVo = new BVo(bgroup,bstep,bindent);
 			}
-			conn = getConnection();
 			sql = "update board set bstep = bstep +1 where bstep >= ? +1";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, bVo.getBstep());
 			resultNum = pstmt.executeUpdate();
 			
-			conn = getConnection();
 			sql = "insert into board values(board_seq.nextval,?,?,?,?,?,?,sysdate,?,1)";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, bVo1.getBtitle());
