@@ -71,6 +71,28 @@ public class BDao {
 		}
 		return list;
 	}// allBoardList
+	public void increase_bhit(int bId) {
+		try {
+			conn = getConnection();
+			String sql = "update board set bhit = bhit+1 where bid = ?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, bId);
+			pstmt.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+		
+	}
 	
 	public BVo oneBoardList(int bId) {
 			BVo bVo = null;
@@ -80,7 +102,7 @@ public class BDao {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, bId);
 			rs = pstmt.executeQuery();
-
+			//조회수 1증가
 			if(rs.next()) {
 				bid = rs.getInt("bid");
 				btitle = rs.getString("btitle");
@@ -210,9 +232,10 @@ public class BDao {
 			bVo2 = new BVo(bgroup,bstep,bindent);
 		}
 		
-		sql = "update board set bstep = bstep+1 where bstep >= ? +1";
+		sql = "update board set bstep = bstep+1 where bstep >= ? +1 and bgroup = ?";
 		pstmt = conn.prepareStatement(sql);
 		pstmt.setInt(1, bVo2.getBstep());
+		pstmt.setInt(2, bVo2.getBgroup());
 		resultNum = pstmt.executeUpdate();
 		
 		sql = "insert into board values(board_seq.nextval,?,?,?,?,?+1,?+1,sysdate,?,0)";

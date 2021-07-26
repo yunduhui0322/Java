@@ -24,6 +24,9 @@ public class BoardServiceModify implements BoardService {
 			btitle = multi.getParameter("btitle");
 			bcontent = multi.getParameter("bcontent");
 			bupload = multi.getFilesystemName("file");
+			if(bupload == null) {
+				bupload = multi.getParameter("oldUpload");
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

@@ -13,7 +13,9 @@ import com.site.ex0722.service.BoardService;
 import com.site.ex0722.service.BoardServiceDelete;
 import com.site.ex0722.service.BoardServiceList;
 import com.site.ex0722.service.BoardServiceModify;
+import com.site.ex0722.service.BoardServiceModifyView;
 import com.site.ex0722.service.BoardServiceReply;
+import com.site.ex0722.service.BoardServiceReplyView;
 import com.site.ex0722.service.BoardServiceView;
 import com.site.ex0722.service.BoardServiceWrite;
 
@@ -53,7 +55,7 @@ public class BoardController extends HttpServlet {
 			dispatcher = request.getRequestDispatcher("/");
 			break;
 		case "/board/bModify.do":
-			boardService = new BoardServiceView();
+			boardService = new BoardServiceModifyView();
 			boardService.execute(request, response);
 			dispatcher = request.getRequestDispatcher("./boardModify.jsp");
 			break;
@@ -68,7 +70,7 @@ public class BoardController extends HttpServlet {
 			dispatcher = request.getRequestDispatcher("/");
 			break;
 		case "/board/bReply.do":
-			boardService = new BoardServiceView();
+			boardService = new BoardServiceReplyView();
 			boardService.execute(request, response);
 			dispatcher = request.getRequestDispatcher("./boardReply.jsp");
 			break;

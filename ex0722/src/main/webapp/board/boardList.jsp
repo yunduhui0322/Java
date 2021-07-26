@@ -22,8 +22,8 @@
 			<form action="/search" name="search" method="post">
 				<select name="category" id="category">
 					<option value="0">전체</option>
-					<option value="title">제목</option>
-					<option value="content">내용</option>
+					<option value="btitle">제목</option>
+					<option value="bcontent">내용</option>
 				</select>
 
 				<div class="title">
@@ -56,8 +56,11 @@
 			<c:forEach var="bVo" items="${list }">
 				<tr>
 					<td><span class="table-notice">${bVo.bid }</span></td>
-					<td class="table-title"><a href="./bView.do?bid=${bVo.bid }">
-					${bVo.btitle }</a></td>
+					<td class="table-title">
+						<c:forEach begin="1" end="${bVo.bindent }">&nbsp;&nbsp;&nbsp;</c:forEach>
+						<c:if test="${bVo.bindent != 0 }">└</c:if>
+					<a href="./bView.do?bid=${bVo.bid }">${bVo.btitle }</a>
+					</td>
 					<td>${bVo.bname }</td>
 					<td>${bVo.bdate }</td>
 					<td>${bVo.bhit }</td>
