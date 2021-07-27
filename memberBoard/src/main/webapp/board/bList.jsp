@@ -24,21 +24,33 @@
 			alert("수정되었습니다");
 		}
 	}
+	if(${ReplyResult != null}){
+		if(${ReplyResult == 1}){
+			alert("답변되었습니다");
+		}
+	}
 </script>
 <body>
 <section>
     <h1>NOTICE</h1>
     <div class="wrapper">
-      <form action="./bSearch.do" name="search" method="post">
+      <form action="./bList.do" name="search" method="post">
         <select name="category" id="category">
-          <option value="0">전체</option>
-          <option value="title">제목</option>
-          <option value="content">내용</option>
+          <option value="all" <c:if test="${category=='all'}">selected</c:if> >전체</option>
+          <option value="title" <c:if test="${category=='title'}">selected</c:if> >제목</option>
+          <option value="content" <c:if test="${category=='content'}">selected</c:if> >내용</option>
         </select>
-
+		<c:if test="${searchWord != null}">
         <div class="title">
-          <input type="text" size="16" name = "bsearch" id = "bsearch">
+          <input type="text" size="16" name = "searchWord" id = "bsearch" value = "${searchWord}">
         </div>
+		</c:if>
+  
+		<c:if test="${searchWord == null}">
+        <div class="title">
+          <input type="text" size="16" name = "searchWord" id = "bsearch" >
+        </div>
+		</c:if>
   
         <button type="submit"><i class="fas fa-search"></i></button>
       </form>
@@ -66,7 +78,7 @@
         <td class="table-title">
         <c:forEach begin="1" end="${bVo.bindent }">&nbsp;&nbsp;&nbsp;</c:forEach>
         <c:if test="${bVo.bindent != 0 }">└</c:if>
-        <a href="./bView.do?bid=${bVo.bid }">${bVo.btitle }</a>
+        <a href="./bView.do?category=${category}&searchWord=${searchWord}&bid=${bVo.bid }&page=${page}">${bVo.btitle }</a>
         
         </td>
         <td>${bVo.bdate }</td>
@@ -78,11 +90,28 @@
     </table>
 
     <ul class="page-num">
-      <li class="first"></li>
-      <li class="prev"></li>
-      <li class="num"><div>1</div></li>
-      <li class="next"></li>
-      <li class="last"></li>
+      <c:if test="${(page != 1) && (startPage-1 != 0)}">
+      <a href = "./bList.do?category=${category}&searchWord=${searchWord}&page=${startPage-1 }"><li class="first"></li></a>
+      </c:if>
+      <c:if test="${page != 1 }">
+      <a href = "./bList.do?category=${category}&searchWord=${searchWord}&page=${page-1 }"><li class="prev"></li></a>
+      </c:if>
+      
+      <c:forEach  var="pageNum" begin="${startPage }" end="${endPage }">
+      <c:if test="${pageNum != page }">
+      <li class="num"><div><a href = "./bList.do?category=${category}&searchWord=${searchWord}&page=${pageNum}">${pageNum}</a></div></li>
+      </c:if>
+      <c:if test="${pageNum == page }">
+      <li class="num"><div>${pageNum }</div></li>
+      </c:if>
+      </c:forEach>
+      
+      <c:if test="${page != maxPage}">
+      <a href = "./bList.do?category=${category}&searchWord=${searchWord}&page=${page+1 }"><li class="next"></li></a>
+      </c:if>
+      <c:if test="${(page != maxPage) && (endPage+1 < maxPage) }">
+      <a href = "./bList.do?category=${category}&searchWord=${searchWord}&page=${endPage+1 }"><li class="last"></li></a>
+      </c:if>
     </ul>
 
     <a href="./bWrite.do"><div class="write">쓰기</div></a>
