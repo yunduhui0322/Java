@@ -14,6 +14,7 @@ public class BVo {
 	private Timestamp bdate;
 	private String bupload;
 	private int bhit;
+	
 	public BVo(int bid, String btitle, String bcontent, String bname, int bgroup, int bstep, int bindent,
 			Timestamp bdate, String bupload, int bhit) {
 		this.bid = bid;

@@ -14,6 +14,7 @@ import com.site.ex0726.Service.BoardServiceDelete;
 import com.site.ex0726.Service.BoardServiceList;
 import com.site.ex0726.Service.BoardServiceModify;
 import com.site.ex0726.Service.BoardServiceModifyView;
+import com.site.ex0726.Service.BoardServiceSearch;
 import com.site.ex0726.Service.BoardServiceView;
 import com.site.ex0726.Service.BoardServiceWrite;
 
@@ -25,7 +26,7 @@ public class BoardController extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("doGet");
+		System.out.println("doPost");
 		doAction(request, response);
 	}
 	protected void doAction(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -68,6 +69,11 @@ public class BoardController extends HttpServlet {
 			boardService = new BoardServiceModify();
 			boardService.execute(request, response);
 			dispatcher = request.getRequestDispatcher("/board/bList.do");
+			break;
+		case "/board/bSearch.do":
+			boardService = new BoardServiceSearch();
+			boardService.execute(request, response);
+			dispatcher = request.getRequestDispatcher("./bList.jsp");
 			break;
 
 		default:

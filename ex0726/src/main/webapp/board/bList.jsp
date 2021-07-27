@@ -29,7 +29,7 @@
 <section>
     <h1>NOTICE</h1>
     <div class="wrapper">
-      <form action="/search" name="search" method="post">
+      <form action="./bSearch.do" name="search" method="post">
         <select name="category" id="category">
           <option value="0">전체</option>
           <option value="title">제목</option>
@@ -37,13 +37,12 @@
         </select>
 
         <div class="title">
-          <input type="text" size="16">
+          <input type="text" size="16" name = "bsearch" id = "bsearch">
         </div>
   
         <button type="submit"><i class="fas fa-search"></i></button>
       </form>
     </div>
-
     <table>
       <colgroup>
         <col width="15%">
@@ -61,7 +60,7 @@
         <th>조회수</th>
       </tr>
       <!-- 내용부분 -->
-      <c:forEach items="${list }" var="bVo">
+      <c:forEach items="${list}" var="bVo">
       <tr>
         <td><span class="table-notice">${bVo.bid }</span></td>
         <td class="table-title">
